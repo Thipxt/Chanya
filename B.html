@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Chanya's Day</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        background-color: #ffe6e6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+      .card {
+        background-color: #fff0f5;
+        border: 2px solid #ff69b4;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        transition: transform 0.3s;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+      h1, .eng {
+        font-family: 'robo ', cursive;
+        color: #ff1493;
+      }
+      p {
+        color: #c71585;
+        font-size: 18px;
+      }
+      .thai {
+        font-family: 'Mitr', sans-serif;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #ff85c1;
+      }
+      .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 20px;
+      }
+      .left img {
+        width: 250px;
+        border-radius: 15px;
+      }
+      .right {
+        text-align: left;
+        max-width: 300px;
+      }
+      .right p {
+        font-size: 18px;
+        color: #c71585;
+      }
+      audio {
+        margin-top: 20px;
+      }
+      .card img {
+        max-width: 200px;
+        height: auto;
+        border-radius: 10px;
+        margin-top: 15px;
+      }
+      .center-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+    <div class="card">
+      <h1 class="eng">Happy Chanya's Day!</h1>
+      <p class="eng">You make my heart smile 😊</p>
+      <div class="center-img">
+        <img src="471370031_1602747293691543_4163264425391003532_n.jpg" alt="BB">
+      </div>
+      <div class="center-button">
+        <button onclick="showLove()">Click Me</button>
+      </div>
+    </div>
+    
+
+    <script>
+      function showLove() {
+        const card = document.querySelector('.card');
+        card.innerHTML = `
+          <h1 class="eng">I Love You !</h1>
+          <h2 class="eng">👩🏻‍❤️‍🧑🏻</h2>
+          <p class="eng">Forever and always.</p>
+          <div class="content">
+            <div class="left">
+              <img src="S__79994902.jpg" alt="Image">
+            </div>
+            <div class="right thai">
+              <p>ขอให้วันเกิดปีนี้เป็นปีที่เธอมีความสุขมากๆ<br>
+              สมหวังในทุกสิ่งที่ตั้งใจ<br>
+              สุขภาพแข็งแรง หัวใจสดใส ยิ้มเยอะๆ<br>
+              และมีเค้าอยู่ข้างๆในทุกทุกวันนะ 💕</p>
+              <p>ธิพัดรักชันยาคั้บบบ</p>
+              <p>Happy Birthday!!</p>
+            </div>
+          </div>
+          <audio controls autoplay loop>
+            <source src="0421.mp4" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        `;
+      }
+    </script>
+  </body>
+</html>
