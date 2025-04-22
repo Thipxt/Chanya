@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet" />
+
     <style>
       body {
         background-color: #ffe6e6;
@@ -24,13 +26,26 @@
         text-align: center;
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         transition: transform 0.3s;
+        position: relative;
+        overflow: hidden;
       }
       .card:hover {
         transform: scale(1.05);
       }
       h1, .eng {
-        font-family: 'robo', cursive;
+        font-family: 'Fredoka', sans-serif;
         color: #ff1493;
+      }
+      .glow-text {
+        animation: glow 1.5s ease-in-out infinite alternate;
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 5px #ff69b4;
+        }
+        to {
+          text-shadow: 0 0 20px #ff1493;
+        }
       }
       p {
         color: #c71585;
@@ -87,6 +102,23 @@
         justify-content: center;
         margin-top: 10px;
       }
+      .heart {
+        position: absolute;
+        color: #ff69b4;
+        font-size: 24px;
+        animation: float 2s ease-out forwards;
+        pointer-events: none;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -111,7 +143,7 @@
         const card = document.querySelector('.card');
         const audio = document.getElementById('bgm');
         card.innerHTML = `
-          <h1 class="eng">I Love You !</h1>
+          <h1 class="eng glow-text">I Love You !</h1>
           <h2 class="eng">👩🏻‍❤️‍🧑🏻</h2>
           <p class="eng">Forever and always.</p>
           <div class="content">
@@ -123,13 +155,30 @@
               สมหวังในทุกสิ่งที่ตั้งใจ<br>
               สุขภาพแข็งแรง หัวใจสดใส ยิ้มเยอะๆ<br>
               และมีเค้าอยู่ข้างๆในทุกทุกวันนะ 💕</p>
-              <p>ธิพัดรักชันยาคั้บบบ</p>
+              <p>ธิพัดรักชันยาคั้บบ เดะเค้ารีบกลับไปหาา</p>
               <p>Happy Birthday!!</p>
             </div>
           </div>
-          <p style="margin-top: 20px; color: #ff69b4;"></p>
+          <p class="eng glow-text" style="margin-top: 20px; color: #ff69b4;">
+           <br> 
+          </p>
         `;
         audio.play();
+        launchHearts();
+      }
+
+      function launchHearts() {
+        const card = document.querySelector('.card');
+        for (let i = 0; i < 30; i++) {
+          const heart = document.createElement('div');
+          heart.classList.add('heart');
+          heart.style.left = Math.random() * 100 + '%';
+          heart.style.top = '100%';
+          heart.style.fontSize = `${16 + Math.random() * 24}px`;
+          heart.textContent = '💖';
+          card.appendChild(heart);
+          setTimeout(() => heart.remove(), 3000);
+        }
       }
     </script>
   </body>
